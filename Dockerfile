@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y curl xz-utils
 WORKDIR /build
 
 # Download Zig 0.16.0 (stable)
-ARG ZIG_VERSION=0.16.0
+ARG ZIG_VERSION=0.15.2
 RUN curl -L -o zig.tar.xz "https://ziglang.org/download/${ZIG_VERSION}/zig-x86_64-linux-${ZIG_VERSION}.tar.xz" && \
     tar xf zig.tar.xz && \
     mv zig-x86_64-linux-${ZIG_VERSION} /usr/local/zig && \
