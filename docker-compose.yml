@@ -1,0 +1,13 @@
+services:
+  zed2api:
+    image: ghcr.io/lilynas/zed2api:latest
+    container_name: zed2api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      # 将宿主机的 ./data 目录映射到容器的 /app/data，用于持久化 accounts.json
+      - ./data:/app/data
+    environment:
+      - HTTP_PORT=8000
+      # - HTTPS_PROXY=http://host.docker.internal:7890

@@ -44,6 +44,8 @@ zig build -Dtarget=x86_64-linux -Doptimize=ReleaseSafe
 
 ## 使用
 
+### 直接运行
+
 ```bash
 # OAuth 登录添加账号
 ./zed2api login [账号名]
@@ -58,6 +60,21 @@ zig build -Dtarget=x86_64-linux -Doptimize=ReleaseSafe
 ```
 
 打开 http://127.0.0.1:8000 进入 Web 管理界面。
+
+### Docker 部署
+
+项目提供了自动构建的 Docker 镜像，并支持 `docker-compose` 快速运行：
+
+```bash
+# 通过 docker-compose 启动
+mkdir -p data # 创建一个目录用于持久化 accounts.json
+docker-compose up -d
+
+# 查看容器运行状态和日志
+docker-compose logs -f
+```
+
+容器默认在 `8000` 端口启动。启动后可以通过 Web UI 继续配置账号，数据将保存在当前目录的 `data/accounts.json` 中。
 
 ## Claude Code 集成
 
